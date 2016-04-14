@@ -31,7 +31,9 @@
                 android:layout_width="match_parent"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                android:background="#81a354" />
+                android:background="#81a354"
+                android:backgroundTint="#81a354"
+                android:clickable="false" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>

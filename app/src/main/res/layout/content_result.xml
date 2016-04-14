@@ -16,8 +16,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="RESULT"
+        android:text="Your estimated emissions are: "
         android:id="@+id/result_box"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentTop="false"
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentStart="false"
+        android:baselineAligned="false"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="157dp"
+            android:layout_height="224dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/tree1" />
+
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="116dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/tree3" />
+
+        <ImageView
+            android:layout_width="103dp"
+            android:layout_height="154dp"
+            android:id="@+id/imageView3"
+            android:background="@drawable/tree2" />
+    </LinearLayout>
 </RelativeLayout>

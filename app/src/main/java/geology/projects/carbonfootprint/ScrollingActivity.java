@@ -15,15 +15,21 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class ScrollingActivity extends AppCompatActivity {
+    private StringBuilder s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        s = new StringBuilder();
+
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(0x81a354);
         setSupportActionBar(toolbar);
 
         CollapsingToolbarLayout toolbar_layout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        toolbar_layout.setBackgroundColor(0x81a354);
         toolbar_layout.setContentScrimColor(0x81a354);
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -106,18 +112,18 @@ public class ScrollingActivity extends AppCompatActivity {
 
         if (car != 0) {
             ans = ((EditText)findViewById(R.id.mile_box)).getText().toString();
-            miles = Double.parseDouble(ans);
+            miles = parse(ans);
 
             res+=miles/car;
         }
 
         ans = ((EditText)findViewById(R.id.longflight_box)).getText().toString();
-        miles = Double.parseDouble(ans);
+        miles = parse(ans);
 
         res+=2.15*miles;
 
         ans = ((EditText)findViewById(R.id.shortflight_box)).getText().toString();
-        miles = Double.parseDouble(ans);
+        miles = parse(ans);
 
         res+=0.4*miles;
 
@@ -154,8 +160,50 @@ public class ScrollingActivity extends AppCompatActivity {
         //Toast.makeText(this, String.valueOf(res), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("FOOTPRINT", res);
+        intent.putExtra("CSV_ANSWERS", constructMessage());
         startActivity(intent);
 
         return res;
+    }
+
+    double parse(String d) {
+        try {
+            return Double.parseDouble(d);
+        } catch (Exception e) {
+            return 0;
+        }
+
+    }
+
+    public String constructMessage() {
+
+        addTextEdit(R.id.age_box);
+        addTextSpinner(R.id.religion_box);
+        addTextSpinner(R.id.gender_box);
+        addTextEdit(R.id.major_box);
+        addTextSpinner(R.id.thermostat_box);
+        addTextSpinner(R.id.water_box);
+        addTextSpinner(R.id.car_box);
+        addTextEdit(R.id.mile_box);
+        addTextEdit(R.id.longflight_box);
+        addTextEdit(R.id.shortflight_box);
+        addTextSpinner(R.id.meat_box);
+        addTextSpinner(R.id.organic_box);
+        addTextSpinner(R.id.recycle_box);
+
+        //s.deleteCharAt(s.length() - 1);
+        String t = s.toString();
+        s.setLength(0);
+        return t;
+
+    }
+
+    private void addTextEdit(int id) {
+        EditText e = (EditText) findViewById(id);
+        s.append(e.getText().toString() + ",");
+    }
+
+    private void addTextSpinner(int id) {
+        s.append((String) ((Spinner) findViewById(id)).getSelectedItem() + ",");
     }
 }

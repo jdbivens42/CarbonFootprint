@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ScrollingActivity"
-            android:label="@string/app_name"
+            android:label="Carbon Footprint"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_result"
+            android:label="Your Results"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
